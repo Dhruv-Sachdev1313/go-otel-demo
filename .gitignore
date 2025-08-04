@@ -1,0 +1,5 @@
+//binary of application
+go-otel-demo
+
+//otel collector tarball
+otelcol-contrib_0.116.0_darwin_arm64.tar.gz
