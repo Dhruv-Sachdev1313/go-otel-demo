@@ -40,7 +40,7 @@ This Go application demonstrates OpenTelemetry metrics and traces integration us
 HTTP Request → Middleware → Handler → Telemetry → OTEL Collector → SigNoz Cloud
 ```
 
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 - **SERVICE_NAME**: Service name for tracing (default: "go-otel-demo")
@@ -48,7 +48,7 @@ HTTP Request → Middleware → Handler → Telemetry → OTEL Collector → Sig
 - **INSECURE_MODE**: Use insecure connection (default: "true")
 - **SERVER_PORT**: Server port (default: ":8080")
 
-## 🏃 Quick Start
+## Quick Start
 
 ### 1. Start OTEL Collector
 ```bash
