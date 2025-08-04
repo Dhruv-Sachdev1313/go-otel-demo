@@ -2,7 +2,7 @@
 
 This Go application demonstrates OpenTelemetry metrics and traces integration using an OTEL Collector that forwards data to SigNoz cloud. The code is organized with clean architecture principles and implements all three metric types plus distributed tracing.
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 ├── main.go                          # Application entry point
@@ -22,7 +22,7 @@ This Go application demonstrates OpenTelemetry metrics and traces integration us
 └── README.md                        # This file
 ```
 
-## 🎯 Features Implemented
+## Features Implemented
 
 ### Metrics (All 3 Types)
 1. **Counter** - `http_errors_total`: Counts HTTP error requests (4xx/5xx)
@@ -34,7 +34,7 @@ This Go application demonstrates OpenTelemetry metrics and traces integration us
 - Error tracking and performance analysis
 - Cart operations instrumentation
 
-## 🚀 Architecture Flow
+## Architecture Flow
 
 ```
 HTTP Request → Middleware → Handler → Telemetry → OTEL Collector → SigNoz Cloud
@@ -75,7 +75,7 @@ go run main.go
 ./test-app.sh
 ```
 
-## 📊 API Endpoints
+## API Endpoints
 
 ### Health Check
 ```bash
@@ -99,7 +99,7 @@ curl "http://localhost:8080/cart/get?user_id=user1"
 # Remove item
 curl "http://localhost:8080/cart/remove?user_id=user1&index=0"
 ```
-## 🎛️ What You'll See in SigNoz
+## What You'll See in SigNoz
 
 ### Metrics Dashboard
 - **http_errors_total**: Error counts by endpoint and status code
@@ -111,7 +111,7 @@ curl "http://localhost:8080/cart/remove?user_id=user1&index=0"
 - Error traces with detailed context and stack information
 - Cart operation traces with user and cart size information
 
-## 🔄 Development Workflow
+## Development Workflow
 
 1. **Add New Endpoints**: Create handler methods in `internal/handlers/`
 2. **Add Configuration**: Extend `internal/config/config.go`
