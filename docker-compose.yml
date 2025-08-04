@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  # OpenTelemetry Collector
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:latest
+    command: ["--config=/etc/otel-collector-config.yaml"]
+    volumes:
+      - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
+    ports:
+      - "4317:4317"   # OTLP gRPC receiver
+      - "4318:4318"   # OTLP HTTP receiver
+      - "8888:8888"   # Prometheus metrics endpoint
+    environment:
+      - OTEL_LOG_LEVEL=debug
+
+  # Your Go application
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - SERVICE_NAME=go-otel-demo
+      - INSECURE_MODE=true
+      - OTEL_EXPORTER_OTLP_ENDPOINT=otel-collector:4317
+    depends_on:
+      - otel-collector
