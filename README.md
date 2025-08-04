@@ -34,12 +34,6 @@ This Go application demonstrates OpenTelemetry metrics and traces integration us
 - Error tracking and performance analysis
 - Cart operations instrumentation
 
-### Clean Architecture
-- **Separation of Concerns**: Each package has a single responsibility
-- **Dependency Injection**: Dependencies are passed to handlers
-- **Configuration Management**: Centralized environment variable handling
-- **No Background Tasks**: Removed automatic cart simulation for clarity
-
 ## 🚀 Architecture Flow
 
 ```
@@ -105,26 +99,6 @@ curl "http://localhost:8080/cart/get?user_id=user1"
 # Remove item
 curl "http://localhost:8080/cart/remove?user_id=user1&index=0"
 ```
-
-## 🔍 Benefits of This Structure
-
-### 1. **Maintainable**
-- Easy to find and modify specific functionality
-- Clear separation between HTTP handling, business logic, and telemetry
-
-### 2. **Testable**
-- Each package can be unit tested independently
-- Dependencies are injected, making mocking easier
-
-### 3. **Scalable**
-- Easy to add new handlers, middleware, or models
-- Configuration is centralized and extensible
-
-### 4. **Clean**
-- No background goroutines cluttering the main logic
-- All telemetry setup is isolated in its own package
-- Handlers focus purely on HTTP request/response logic
-
 ## 🎛️ What You'll See in SigNoz
 
 ### Metrics Dashboard
